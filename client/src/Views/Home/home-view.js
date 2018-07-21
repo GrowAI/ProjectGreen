@@ -1,11 +1,18 @@
-import React from 'react';
-import './home-view.scss';
-export default props =>
-<div className='home'>
-  <h1>
-    Welcome!
-  </h1>
-  <div>
-    This is an example homepage.
-  </div>
-</div>
+
+import React, {Component} from 'react';
+import Carousel from "./HomeComponets/Carousel.jsx"
+class Home extends Component {
+  state={
+
+  }
+  render(){
+    return(
+      <div className='home'>
+    <Carousel/>
+    </div>
+    )
+  
+  }
+
+
+}export default Home
