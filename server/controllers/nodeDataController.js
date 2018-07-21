@@ -1,4 +1,4 @@
-import db from "../db";
+import db from "../models";
 
 // Defining methods for the booksController
 const controller = {
