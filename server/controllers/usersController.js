@@ -11,7 +11,7 @@ const controller = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  findById: function(req, res) {S
+  findById: function(req, res) {
     db.nodeData.findOne({
         where: {
           id: req.params.id,
