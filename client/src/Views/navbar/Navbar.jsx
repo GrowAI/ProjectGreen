@@ -31,7 +31,7 @@ class Navbar extends Component{
             <MenuIcon />
           </IconButton>
           <Typography variant="title" color="inherit" style={styles.flex}>
-            News
+            GrowAI
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>
