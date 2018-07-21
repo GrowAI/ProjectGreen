@@ -1,6 +1,6 @@
-import organization from './organization';
+import nodeData from './nodeData';
 const routers = {
-  organization
+  nodeData
 };
 export {
   routers as default,

@@ -1,11 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
   var nodeData = sequelize.define("nodeData", {
-    name: {
+    client_id: {
       type: DataTypes.STRING,
       allowNull: false
 
     },
-    description: {
+    room_id: {
       type: DataTypes.STRING,
       allowNull: false
       
