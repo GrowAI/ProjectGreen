@@ -1,10 +1,24 @@
 import React, {Component} from 'react';
 import { BrowserRouter, Route, Link,Switch } from 'react-router-dom';
-import Data from '../Data/nodes-api.js'
+import Data from '../../Data/nodes-api'
+const test=[{size:'hye',list:'bitch'}]
+
+
+function getDbDate (value) {
+  const split=JSON.stringify(value);
+const dbDate = split.split(':')
+const splitDate=dbDate[0].split('-')
+const dayCreated =splitDate[2].split('T')
+const removed=splitDate[0].split('"')
+
+const dates=splitDate[1]+'-'+dayCreated[0]+'-'+removed[1]
+return dates
+ };
 class Room extends Component {
   state = {
     room:[]
   } 
+  
   componentDidMount = () => {
 
     Data.getAll().then(data => {
@@ -18,11 +32,14 @@ this.setState({
       return (
     
         <div className="Room">
-         
-         {this.state.products.map((tile) => (
+        <br/>
+       
+         {this.state.room.map((tile) => (
            <div>
-<p>{tile.size}</p>
-<p>{tile.list}</p>
+             <p>{tile.id}</p>
+<p>{tile.roomSize}</p>
+<p>{tile.nodeList}</p>>
+<p>{tile.nodeList.getDbDate()}</p>
 </div>
          ))}
 
