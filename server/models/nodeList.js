@@ -1,19 +1,22 @@
 module.exports = function(sequelize, DataTypes) {
-  var rooms = sequelize.define("rooms", {
+  var nodeList = sequelize.define("rooms", {
       id: {
           primaryKey: true,
           type: DataTypes.UUID,
           defaultValue: DataTypes.UUIDV4,
       },
-      roomSize: {
+      nodeListID: {
           type: DataTypes.STRING,
           allowNull: false
       },
-      nodeList: {
+      userID: {
           type: DataTypes.STRING,
       },
+      roomID: {
+        type: DataTypes.STRING,
+    },
       
       
   });
-  return rooms;
+  return nodeList;
 };

@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var nodeData = sequelize.define("nodeData", {
+  var nodes = sequelize.define("nodes", {
     id: {
       primaryKey: true,
       type: DataTypes.UUID,
@@ -25,15 +25,39 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    roomId: {
+    r: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    userId: {
+    g: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    b: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    lux: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    full: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    visible: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    ir: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    roomId: {
       type: DataTypes.STRING,
       allowNull: false
     },
    
   });
-  return nodeData;
+  return nodes;
 };
