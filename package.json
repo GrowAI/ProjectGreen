@@ -5,6 +5,8 @@
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
+    "@material-ui/core": "^1.4.0",
+    "@material-ui/icons": "^1.1.0",
     "autoprefixer": "7.1.6",
     "axios": "^0.17.1",
     "babel-cli": "^6.26.0",
