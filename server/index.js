@@ -1,8 +1,9 @@
 import routers from "./routes";
 import express from "express";
-import bodyParser from "body-parser";
+import bodyParser from "body-parser";  // Parses incoming data
 import logger from "morgan";
 
+// Exports the app so can import anywhere (exports the default)
 export default path => {
   // Create Instance of Express
   const app = express();
@@ -12,13 +13,14 @@ export default path => {
   app.use(bodyParser.json());
 
   app.use(express.static(`${path}/client`));
-  app.use("/api/organization", routers.organization);
+  // Where the node data will be sent aka www....../api/nodeData
+  app.use("/api/nodeData", routers.nodeData);
 
   // Any non API GET routes will be directed to our React App and handled by React Router
   app.get("*", (req, res) => {
     res.sendFile(`${path}/client/index.html`);
   });
 
-  return app;
+  return app; //Returns app.js
   // -------------------------------------------------
 };

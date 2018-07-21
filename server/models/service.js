@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Service = sequelize.define("Service", {
+  var nodeData = sequelize.define("nodeData", {
     name: {
       type: DataTypes.STRING,
       allowNull: false
@@ -15,5 +15,5 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: false
     }
   });
-  return Service;
+  return nodeData;
 };
