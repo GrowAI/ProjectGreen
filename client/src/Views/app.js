@@ -6,6 +6,7 @@ import Navbar from './Navbar/Navbar'
 import './app.scss'
 class App extends Component {
   state = {
+  } 
     render(){
       return (
         <BrowserRouter>
@@ -29,6 +30,7 @@ class App extends Component {
 
   }
  
-}export default App;
+
+export default App;
 
 
