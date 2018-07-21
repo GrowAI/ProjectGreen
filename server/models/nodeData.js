@@ -5,14 +5,35 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
     },
-    userID: {
+    nodeId: {
+      primaryKey: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+    },
+    userId: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },   nodeType: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    inactive: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
-    }
+    tempeture: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },  
+     humidity: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    roomId: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    userId: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+   
   });
   return nodeData;
 };

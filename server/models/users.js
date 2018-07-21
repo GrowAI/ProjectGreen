@@ -21,7 +21,11 @@ module.exports = function(sequelize, DataTypes) {
         subscription: {
             type: DataTypes.STRING,
             defaultValue: "basic"
-        }
+        },
+        inactive: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+          }
     });
     return users;
   };
