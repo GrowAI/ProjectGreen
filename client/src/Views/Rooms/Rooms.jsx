@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { BrowserRouter, Route, Link,Switch } from 'react-router-dom';
 import Data from '../../Data/nodes-api'
-const test=[{size:'hye',list:'bitch'}]
+const test=[{id:'111111',roomSize:'hye',nodeList:'bitch'}]
 
 
 function getDbDate (value) {
@@ -29,17 +29,18 @@ this.setState({
 
   }
     render(){
+
       return (
     
         <div className="Room">
-        <br/>
+        <br/>    <br/>    <br/>
        
-         {this.state.room.map((tile) => (
+         {test.map((tile) => (
            <div>
              <p>{tile.id}</p>
 <p>{tile.roomSize}</p>
 <p>{tile.nodeList}</p>>
-<p>{tile.nodeList.getDbDate()}</p>
+{/* <p>{getDbDate(tile.nodeList)}</p> */}
 </div>
          ))}
 
