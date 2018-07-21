@@ -1,15 +1,17 @@
 
 import React, {Component} from 'react';
+import './Carousel.css'
 const Carousel  =require('react-responsive-carousel').Carousel;
+
 class CarouselItem extends Component {
   
   render(){
     return(
       <div className='home'>
       {/* {nChange={onChange} onClickItem={onClickItem} onClickThumb={onClickThumb}} */}
-     <Carousel showArrows={true} >
+     <Carousel style={{height:'30px'}}showArrows={true} >
                 <div>
-                    <img src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg" />
+                    <img  height="42" width="42"src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg" />
                     <p className="legend">Legend 1</p>
                 </div>
                 <div>

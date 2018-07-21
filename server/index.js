@@ -14,7 +14,7 @@ export default path => {
 
   app.use(express.static(`${path}/client`));
   // Where the node data will be sent aka www....../api/nodeData
-  app.use("/api/nodeData", routers.nodeData);
+  app.use("/api/nodes", routers.nodeData);
 
   // Any non API GET routes will be directed to our React App and handled by React Router
   app.get("*", (req, res) => {

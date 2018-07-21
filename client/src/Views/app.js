@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { BrowserRouter, Route, Link,Switch } from 'react-router-dom';
 import Test from './Home/HomeComponets/Carousel'
-import Organization from './Organization'
+
 import Home from "./Home/index"
 import Navbar from './Navbar/Navbar'
 import './app.scss'
@@ -16,9 +16,9 @@ class App extends Component {
 
           </Navbar>
    
-<Test/>
+
           <Switch>
-          <Route exact path='/' Component={Home} />
+          <Route exact path='/' component={Home} />
                         </Switch>
       
       
