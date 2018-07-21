@@ -1,14 +1,13 @@
 module.exports = function(sequelize, DataTypes) {
   var nodeData = sequelize.define("nodeData", {
-    client_id: {
-      type: DataTypes.STRING,
-      allowNull: false
-
+    id: {
+      primaryKey: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
     },
-    room_id: {
+    userID: {
       type: DataTypes.STRING,
       allowNull: false
-      
     },
     inactive: {
       type: DataTypes.BOOLEAN,
