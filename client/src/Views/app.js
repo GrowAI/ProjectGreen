@@ -14,15 +14,9 @@ class App extends Component {
           <Navbar>
 
           </Navbar>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/organization">Organizations</Link></li>
-          </ul>
+         
       
-          <hr/>
       
-          <Route exact path="/" component={Home}/>
-          <Route path="/organization" component={Organization}/>
         </div>
       </BrowserRouter>
       )
