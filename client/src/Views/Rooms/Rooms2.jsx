@@ -12,8 +12,7 @@ const styles = {
     flexGrow: 1,
   },
 box: {
-    width: '300px',
-    height: '100px',
+  
     border: '1px solid blue' 
   },
 };
@@ -59,7 +58,7 @@ class Room extends Component {
   
   componentDidMount = () => {
 
-    Data.getAll().then(data => {
+    Data.getById().then(data => {
 this.setState({
   room:data.data
 })

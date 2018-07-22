@@ -12,8 +12,7 @@ const styles = {
     flexGrow: 1,
   },
 box: {
-    width: '300px',
-    height: '100px',
+    
     border: '1px solid blue' 
   },
 };
