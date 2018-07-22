@@ -4,9 +4,19 @@ import db from "../models";
 const controller = {
   findAll: (req, res) => {
     db.nodes.findAll({
-    
+      limit: 1,
+      where: {
+        //your where conditions, or without them if you need ANY entry
+      },
+      order: [ [ 'createdAt', 'DESC' ]]
       })
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => {
+        console.log(dbModel)
+        res.json(dbModel)
+      }
+  
+    )
+
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {

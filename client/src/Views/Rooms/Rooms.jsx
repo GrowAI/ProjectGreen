@@ -1,9 +1,22 @@
 import React, {Component} from 'react';
 import { BrowserRouter, Route, Link,Switch } from 'react-router-dom';
 import Data from '../../Data/nodes-api'
+import Grid from '@material-ui/core/Grid';
 const test=[{id:'111111',roomSize:'hye',nodeList:'bitch',createdAt:'2018-07-14 19:29:29'}]
 
-
+const styles = {
+  root: {
+    flexGrow: 1,
+  },
+  flex: {
+    flexGrow: 1,
+  },
+box: {
+    width: '300px',
+    height: '500px',
+    border: '1px solid blue' 
+  },
+};
 function getDbDate (value) {
   const split=JSON.stringify(value);
 const dbDate = split.split(':')
@@ -28,15 +41,41 @@ this.setState({
     })
 
   }
+  
+ livereload = () => {
+  // setInterval(function(){
+  //       }) }, 9000);
+  
+      
+        setInterval(function(){    Data.getAll().then(data => {
+          this.setState({
+            room:data.data
+          })
+              })}, 5000);
+            
+  
+  }
+  refresh = () => {
+    
+    Data.getAll().then(data => {
+this.setState({
+  room:data.data
+})
+    })
+
+  }
     render(){
 
       return (
     
         <div className="Room">
-        <br/>    <br/>    <br/>
-       
+        <Grid container spacing={4}>
+        <button onClick={this.refresh}> click me for new information from db </button>
+        <button onClick={this.livereload}> click me for live reload </button>
+        <br/><br/><br/>
          {this.state.room.map((tile) => (
-           <div>
+              <Grid xs={4}>
+           <div style={styles.box}>
          
              <p>{tile.nodeId}</p>
 <p>{tile.userId}</p>
@@ -53,10 +92,11 @@ this.setState({
 
 <p>{getDbDate(tile.createdAt)}</p>
 </div>
+</Grid>
          ))}
 
          
-      
+      </Grid>
       
         </div>
       
