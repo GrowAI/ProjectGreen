@@ -28,9 +28,19 @@ const controller = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    db.rooms.create({
-        roomSize: req.body.size,
-        nodeList: req.body.list
+    db.nodes.create({
+        nodeId: req.body.nodeId,
+        userId: req.body.userId,
+        temperature: req.body.temperature,
+        humidity: req.body.humidity,
+        r: req.body.r,
+        g: req.body.g,
+        b: req.body.b,
+        lux: req.body.lux,
+        full: req.body.full,
+        visible: req.body.visible,
+        ir: req.body.ir,
+        roomId: req.body.roomId,
       })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
