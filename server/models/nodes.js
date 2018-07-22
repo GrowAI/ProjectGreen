@@ -12,50 +12,50 @@ module.exports = function(sequelize, DataTypes) {
     },
     userId: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },   nodeType: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     tempeture: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },  
      humidity: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     r: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     g: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     b: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     lux: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     full: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     visible: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     ir: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     roomId: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
    
   });

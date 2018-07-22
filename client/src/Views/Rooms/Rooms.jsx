@@ -37,9 +37,20 @@ this.setState({
        
          {this.state.room.map((tile) => (
            <div>
-             <p>{tile.id}</p>
-<p>{tile.roomSize}</p>
-<p>{tile.nodeList}</p>>
+         
+             <p>{tile.nodeId}</p>
+<p>{tile.userId}</p>
+<p>{tile.temperature}</p>
+<p>{tile.humidity}</p>
+<p>{tile.r}</p>
+<p>{tile.g}</p>
+<p>{tile.b}</p>
+<p>{tile.lux}</p>
+<p>{tile.full}</p>
+<p>{tile.visable}</p>
+<p>{tile.ir}</p>
+<p>{tile.roomId}</p>
+
 <p>{getDbDate(tile.createdAt)}</p>
 </div>
          ))}
