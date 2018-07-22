@@ -133,9 +133,14 @@ toggleDrawer = (side, open) => () => {
           <IconButton style={styles.menuButton} onClick={this.toggleDrawer('left', true)} color="inherit" aria-label="Menu">
             <MenuIcon />
           </IconButton>
-          <Typography variant="title" color="inherit" style={styles.flex}>
+          <Typography style={{cursor: 'pointer'}}onClick={()=>{window.location='/user/rooms'}} variant="title" color="inherit" style={styles.flex}>
             GrowAI
           </Typography>
+          <Typography variant="title" color="inherit" style={styles.flex}>
+          <button onClick={()=>{window.location='/user/rooms'}}> view most current Index</button>
+
+<button onClick={()=>{window.location='/user/data/room'}}> view all of the Data </button>
+</Typography>
           <Button onClick={this.handleClickOpen} color="inherit">Login</Button>
           <Button onClick={this.handleClickOpen} color="inherit">Sign Up</Button>
         </Toolbar>

@@ -11,7 +11,7 @@ const controller = {
       order: [ [ 'createdAt', 'DESC' ]]
       })
       .then(dbModel => {
-        console.log(dbModel)
+  
         res.json(dbModel)
       }
   
@@ -20,20 +20,14 @@ const controller = {
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
-    db.nodes.findOne({
-        where: {
-          id: req.params.id,
-          inactive: false
-        }
+    db.nodes.findAll({
+       
       })
-      .then(dbModel => {
-        if (dbModel) {
-          res.json(dbModel);
-        } else {
-          res.status(404).json({
-            message: 'Id not found.'
-          });
-        }
+      .then(jeff => {
+        console.log('dbModel')
+          res.send(jeff);
+      
+  
       })
       .catch(err => res.status(422).json(err));
   },

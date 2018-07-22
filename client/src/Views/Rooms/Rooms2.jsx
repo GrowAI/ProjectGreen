@@ -27,14 +27,15 @@ const removed=splitDate[0].split('"')
 const dates=splitDate[1]+'-'+dayCreated[0]+'-'+removed[1]
 return dates
  };
-class Room extends Component {
+class Room2 extends Component {
   state = {
     room:[]
   } 
   
   componentDidMount = () => {
 
-    Data.getAll().then(data => {
+    Data.getById().then(data => {
+        console.log(data.data)
 this.setState({
   room:data.data
 })
@@ -57,7 +58,7 @@ this.setState({
   }
   refresh = () => {
     
-    Data.getAll().then(data => {
+    Data.getById().then(data => {
 this.setState({
   room:data.data
 })
@@ -108,5 +109,5 @@ this.setState({
   }
  
 
-export default Room;
+export default Room2;
 

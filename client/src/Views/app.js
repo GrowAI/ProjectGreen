@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { BrowserRouter, Route, Link,Switch } from 'react-router-dom';
 import Test from './Home/HomeComponets/Carousel'
 import Rooms from './Rooms/Rooms'
+import Room2 from './Rooms/Rooms2'
 import Home from "./Home/index"
 import Navbar from './Navbar2/Navbar'
 import './app.scss'
@@ -9,6 +10,7 @@ import './app.scss'
 class App extends Component {
   state = {
   } 
+
     render(){
       return (
         <BrowserRouter>
@@ -21,6 +23,7 @@ class App extends Component {
           <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/user/rooms' component={Rooms}/>
+          <Route exact path='/user/data/room' component={Room2}/>
                         </Switch>
       
       
