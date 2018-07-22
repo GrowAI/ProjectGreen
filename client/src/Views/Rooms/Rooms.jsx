@@ -17,6 +17,31 @@ box: {
     border: '1px solid blue' 
   },
 };
+function getTIme(value) {
+  const split=JSON.stringify(value);
+  const dbDate = split.split(':')
+  const splitDate=dbDate[0].split('-')
+ const splitTime= splitDate[2].split('T')
+ const hour =splitTime[0];
+const hourToNUm= parseInt(hour);
+let amPm;
+let newHour
+if(hourToNUm<13){
+ amPm='AM'
+ newHour=hour
+}else if(hourToNUm >12){
+ amPm='PM'
+ newHour=hour-12
+ 
+}
+
+const t24=`${newHour}:${dbDate[1]} ${amPm}`
+
+
+const time=`${newHour}:${dbDate[1]} ${amPm}`
+  console.log(value)
+  return time;
+}
 function getDbDate (value) {
   const split=JSON.stringify(value);
 const dbDate = split.split(':')
@@ -78,21 +103,23 @@ this.setState({
          {this.state.room.map((tile) => (
               <Grid xs={4}>
            <div style={styles.box}>
-         
-             <p>{tile.nodeId}</p>
-<p>{tile.userId}</p>
-<p>{tile.temperature}</p>
-<p>{tile.humidity}</p>
-<p>{tile.r}</p>
-<p>{tile.g}</p>
-<p>{tile.b}</p>
-<p>{tile.lux}</p>
-<p>{tile.full}</p>
-<p>{tile.visable}</p>
-<p>{tile.ir}</p>
-<p>{tile.roomId}</p>
+         <p>Id: {tile.id}</p>
+             <p>Node Id: {tile.nodeId}</p>
+<p>User Id: {tile.userId}</p>
+<p>Node Type: {tile.nodeType}</p>
+<p>Temperature: {tile.temperature}</p>
+<p>Humidity: {tile.humidity}</p>
+<p>R: {tile.r}</p>
+<p>G: {tile.g}</p>
+<p>B: {tile.b}</p>
+<p>Lux: {tile.lux}</p>
+<p>Full: {tile.full}</p>
+<p>Visable: {tile.visable}</p>
+<p>IR: {tile.ir}</p>
+<p>Room Id: {tile.roomId}</p>
 
-<p>{getDbDate(tile.createdAt)}</p>
+<p>Date Created: {getDbDate(tile.createdAt)}</p>
+<p>Time Created At: {getTIme(tile.createdAt)}</p>
 </div>
 </Grid>
          ))}

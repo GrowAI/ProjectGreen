@@ -35,6 +35,7 @@ const controller = {
     db.nodes.create({
         nodeId: req.body.nodeId,
         userId: req.body.userId,
+        nodeType:req.body.nodeId,
         temperature: req.body.temperature,
         humidity: req.body.humidity,
         r: req.body.r,
