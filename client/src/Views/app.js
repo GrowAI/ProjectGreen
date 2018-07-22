@@ -5,6 +5,7 @@ import Rooms from './Rooms/Rooms'
 import Home from "./Home/index"
 import Navbar from './Navbar2/Navbar'
 import './app.scss'
+
 class App extends Component {
   state = {
   } 

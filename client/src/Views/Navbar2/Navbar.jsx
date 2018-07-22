@@ -148,4 +148,4 @@ toggleDrawer = (side, open) => () => {
 Navbar.propTypes = {
   fullScreen: PropTypes.bool.isRequired,
 };
-export default withMobileDialog()(Navbar);
+export default Navbar;
