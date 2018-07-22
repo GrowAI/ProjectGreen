@@ -103,8 +103,8 @@
     "dev": "yarn dev-build && yarn dev-start",
     "prod": "yarn prod-build && yarn prod-start",
     "heroku-postbuild": "yarn build",
-    "prestart": "build"
-  
+    "prestart": "build ",
+    "start": "start -p ${PORT}"
   },
   "jest": {
     "collectCoverageFrom": [
