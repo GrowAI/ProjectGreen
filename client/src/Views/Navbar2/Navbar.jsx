@@ -133,7 +133,7 @@ toggleDrawer = (side, open) => () => {
           <IconButton style={styles.menuButton} onClick={this.toggleDrawer('left', true)} color="inherit" aria-label="Menu">
             <MenuIcon />
           </IconButton>
-          <Typography style={{cursor: 'pointer'}}onClick={()=>{window.location='/user/rooms'}} variant="title" color="inherit" style={styles.flex}>
+          <Typography style={{cursor: 'pointer'}}onClick={()=>{window.location='/'}} variant="title" color="inherit" style={styles.flex}>
             GrowAI
           </Typography>
           <Typography variant="title" color="inherit" style={styles.flex}>
