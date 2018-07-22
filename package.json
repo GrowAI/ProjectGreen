@@ -102,7 +102,7 @@
     "prod-start": "cross-env NODE_ENV=production yarn start",
     "dev": "yarn dev-build && yarn dev-start",
     "prod": "yarn prod-build && yarn prod-start",
-    "heroku-postbuild": "yarn build",
+    "heroku-postbuild": "yarn build"
   
   },
   "jest": {
