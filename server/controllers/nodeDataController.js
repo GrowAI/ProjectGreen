@@ -64,12 +64,20 @@ const controller = {
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
-    db.nodes.update({
-        inactive: true
-      }, {
-        where: {
-          id: req.params.id
-        }
+    db.nodes.destroy({
+     where:{
+   
+     }
+      })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  removeOne: function(req, res) {
+    console.log(req.params.id)
+    db.nodes.destroy({
+     where:{
+      id:req.params.id
+     }
       })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

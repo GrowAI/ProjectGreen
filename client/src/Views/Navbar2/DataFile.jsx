@@ -53,6 +53,14 @@ export const otherMailFolderListItems = (
       </ListItemIcon>
       <ListItemText primary="Help" />
     </ListItem>
-    
+    <ListItem button>
+    <InboxIcon />
+    <ListItemText onClick={()=>{window.location='/user/rooms'}} primary="View One" />
+    </ListItem>
+    <ListItem button>
+    <StarIcon />
+    <ListItemText onClick={()=>{window.location='/user/data/room'}} primary="View All" />
+    </ListItem>
+
   </div>
 );

@@ -8,7 +8,8 @@ router.get("/", nodeData.findAll);
 router.get("/the/room", nodeData.findById);
 router.post("/rooms", nodeData.create);
 router.put("/:id", nodeData.update);
-router.delete("/:id", nodeData.remove);
+router.delete("/", nodeData.remove);
+router.delete("/die/:id", nodeData.removeOne);
 
 // Export routes for server.js to use.
 export default router;

@@ -137,9 +137,7 @@ toggleDrawer = (side, open) => () => {
             GrowAI
           </Typography>
           <Typography variant="title" color="inherit" style={styles.flex}>
-          <button onClick={()=>{window.location='/user/rooms'}}> view most current Index</button>
-
-<button onClick={()=>{window.location='/user/data/room'}}> view all of the Data </button>
+       
 </Typography>
           <Button onClick={this.handleClickOpen} color="inherit">Login</Button>
           <Button onClick={this.handleClickOpen} color="inherit">Sign Up</Button>

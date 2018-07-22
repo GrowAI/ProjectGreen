@@ -53,17 +53,22 @@ return dates
  };
 class Room extends Component {
   state = {
-    room:[]
+    room:[],
+    id:''
   } 
   
   componentDidMount = () => {
 
     Data.getAll().then(data => {
-this.setState({
-  room:data.data
-})
+   console.log(data.data)
+   if(data.data!==null||data.data !==undefined||data.data !==[]){
+    this.setState({
+        room:data.data,
+        id:data.data[0].id
+      })
+   }
     })
-
+    
   }
   
  livereload = () => {
@@ -79,6 +84,46 @@ this.setState({
             
   
   }
+  deleteAll=()=>{
+    let yesOrNo=  window.confirm("Are You Sure you want to Delete everything in the Db!?!");
+    if(yesOrNo ===true){
+      Data.delete().then(()=>{
+          Data.getAll().then(data => {
+              this.setState({
+                room:data.data
+              })
+                  })
+      })
+    }
+    else
+    {
+        window.alert('nothing was deleted')
+    }
+  
+  }
+    deleteCurent = () => {
+      console.log(this.state.id)
+      let yesOrNo=  window.confirm("Are You Sure you want to Delete the Current index!?!");
+      if(yesOrNo ===true){
+      
+            Data.deleteById(this.state.id).then(data => {
+              Data.getAll().then(data => {
+                if(data.data[0].id !==null||data.data[0].id !==undefined){
+                  this.setState({
+                      room:data.data,
+                      id:data.data[0].id
+                    })
+                 }
+                    })
+                    })
+      
+      }
+      else
+      {
+          window.alert('nothing was deleted')
+      }
+
+    }
   refresh = () => {
     
     Data.getAll().then(data => {
@@ -93,8 +138,11 @@ this.setState({
       return (
     
         <div className="Room">
+   
         <button onClick={this.refresh}> click me for new information from db </button>
         <button onClick={this.livereload}> click me for live reload </button>
+        <button onClick={this.deleteCurent}> Delete Current Info  </button>
+        <button onClick={this.deleteAll}> click me to empty the db </button>
         <br/>   <br/>   <br/>   <br/>
         <Grid container spacing={4}>
         

@@ -12,7 +12,7 @@ const styles = {
     flexGrow: 1,
   },
 box: {
-  
+    
     border: '1px solid blue' 
   },
 };
@@ -53,17 +53,23 @@ return dates
  };
 class Room extends Component {
   state = {
-    room:[]
+    room:[],
+    id:''
   } 
   
   componentDidMount = () => {
 
     Data.getById().then(data => {
-this.setState({
-  room:data.data
-})
-    })
+   console.log(data.data)
+   if(data.data!==null||data.data !==undefined||data.data !==[]){
+    this.setState({
+        room:data.data,
+        id:data.data[0].id
+      })
+   }
 
+    })
+    
   }
   
  livereload = () => {
@@ -79,9 +85,50 @@ this.setState({
             
   
   }
+  deleteAll=()=>{
+    let yesOrNo=  window.confirm("Are You Sure you want to Delete everything in the Db!?!");
+    if(yesOrNo ===true){
+      Data.delete().then(()=>{
+          Data.getById().then(data => {
+            if(data.data[0].id !==null||data.data[0].id !==undefined){
+                this.setState({
+                    room:data.data,
+                    id:data.data[0].id
+                  })
+               }
+                  })
+      })
+    }
+    else
+    {
+        window.alert('nothing was deleted')
+    }
+  
+  }
+    deleteCurent = () => {
+      
+      let person=  window.prompt("Which id do you want To Delete!?!");
+      console.log( person)
+      if(person  !==null ){
+      
+            Data.deleteById( person).then(data => {
+              Data.getById().then(data => {
+                this.setState({
+                  room:data.data,
+                 id: data.data[0].id||'000000'
+                })
+                    })
+                    })
+      
+      }else{
+          alert('none')
+      }
+     
+
+    }
   refresh = () => {
     
-    Data.getAll().then(data => {
+    Data.getById().then(data => {
 this.setState({
   room:data.data
 })
@@ -93,8 +140,11 @@ this.setState({
       return (
     
         <div className="Room">
+   
         <button onClick={this.refresh}> click me for new information from db </button>
         <button onClick={this.livereload}> click me for live reload </button>
+        <button onClick={this.deleteCurent}> Delete an certin Id  </button>
+        <button onClick={this.deleteAll}> click me to empty the db </button>
         <br/>   <br/>   <br/>   <br/>
         <Grid container spacing={4}>
         
