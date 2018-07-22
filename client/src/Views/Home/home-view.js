@@ -1,6 +1,7 @@
 
 import React, {Component} from 'react';
 import Carousel from "./HomeComponets/Carousel.jsx"
+import AddNodes from '../AddNodes/AddNodes'
 class Home extends Component {
   state={
 
@@ -9,7 +10,7 @@ class Home extends Component {
     return(
       <div className='home'>
 
-
+<AddNodes/>
     </div>
     )
   

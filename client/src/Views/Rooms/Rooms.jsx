@@ -38,7 +38,7 @@ const t24=`${newHour}:${dbDate[1]} ${amPm}`
 
 
 const time=`${newHour}:${dbDate[1]} ${amPm}`
-  console.log(value)
+  console.log(hour)
   return time;
 }
 function getDbDate (value) {

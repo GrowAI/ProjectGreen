@@ -38,6 +38,7 @@ const t24=`${newHour}:${dbDate[1]} ${amPm}`
 
 
 const time=`${newHour}:${dbDate[1]} ${amPm}`
+  console.log(hour)
   console.log(value)
   return time;
 }
@@ -60,7 +61,7 @@ class Room extends Component {
   componentDidMount = () => {
 
     Data.getById().then(data => {
-   console.log(data.data)
+   
    if(data.data!==null||data.data !==undefined||data.data !==[]){
     this.setState({
         room:data.data,

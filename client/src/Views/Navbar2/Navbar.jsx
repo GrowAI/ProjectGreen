@@ -57,6 +57,7 @@ toggleDrawer = (side, open) => () => {
 
    render(){
     const { fullScreen } = this.props;
+    // importing buttons for the drawer list
     const sideList = (
       <div styles={styles.list}>
    <List>{mailFolderListItems}</List>
@@ -75,6 +76,7 @@ toggleDrawer = (side, open) => () => {
   return (
     <div style={styles.root}>
     <AppBar position="static">
+    {/* signIn Modal */}
     <Dialog
           fullScreen={fullScreen}
           open={this.state.open}
@@ -119,6 +121,7 @@ toggleDrawer = (side, open) => () => {
             </Button>
           </DialogActions>
         </Dialog>
+   {/* Drawer opens from the left */}
         <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
           <div
             tabIndex={0}
@@ -130,9 +133,11 @@ toggleDrawer = (side, open) => () => {
           </div>
         </Drawer>
         <Toolbar>
+          {/* Icon button top left of screen next to comany name:GrowAI */}
           <IconButton style={styles.menuButton} onClick={this.toggleDrawer('left', true)} color="inherit" aria-label="Menu">
             <MenuIcon />
           </IconButton>
+          {/* {CompanyName} top left hand side of screen */}
           <Typography style={{cursor: 'pointer'}}onClick={()=>{window.location='/'}} variant="title" color="inherit" style={styles.flex}>
             GrowAI
           </Typography>

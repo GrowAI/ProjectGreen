@@ -21,7 +21,7 @@ const controller = {
   },
   findById: function(req, res) {
     db.nodes.findAll({
-       
+      order: [ [ 'createdAt', 'DESC' ]]
       })
       .then(jeff => {
         console.log('dbModel')
