@@ -164,7 +164,7 @@ this.setState({
 <p>B: {tile.b}</p>
 <p>Lux: {tile.lux}</p>
 <p>Full: {tile.full}</p>
-<p>Visable: {tile.visable}</p>
+<p>Visable: {tile.visible}</p>
 <p>IR: {tile.ir}</p>
 <p>Room Id: {tile.roomId}</p>
 

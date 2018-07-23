@@ -148,9 +148,11 @@ this.setState({
         
         <br/><br/><br/>
          {this.state.room.map((tile) => (
+          
               <Grid xs={4}>
            <div style={styles.box}>
          <p>Id: {tile.id}</p>
+         {console.log(tile)}
              <p>Node Id: {tile.nodeId}</p>
 <p>User Id: {tile.userId}</p>
 <p>Node Type: {tile.nodeType}</p>
@@ -158,10 +160,12 @@ this.setState({
 <p>Humidity: {tile.humidity}</p>
 <p>R: {tile.r}</p>
 <p>G: {tile.g}</p>
+
+
 <p>B: {tile.b}</p>
 <p>Lux: {tile.lux}</p>
 <p>Full: {tile.full}</p>
-<p>Visable: {tile.visable}</p>
+<p>Visable: {tile.visible}</p>
 <p>IR: {tile.ir}</p>
 <p>Room Id: {tile.roomId}</p>
 

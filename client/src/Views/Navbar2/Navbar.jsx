@@ -40,6 +40,8 @@ class Navbar extends Component{
 state={
   left: false,
   open:false,
+  email:'',
+  pass:''
 
 }
 toggleDrawer = (side, open) => () => {
@@ -54,7 +56,11 @@ toggleDrawer = (side, open) => () => {
   handleClose = () => {
     this.setState({ open: false });
   };
-
+  handleChange = name => event => {
+    this.setState({
+      [name]: event.target.value,
+    });
+  };
    render(){
     const { fullScreen } = this.props;
     // importing buttons for the drawer list
@@ -91,6 +97,7 @@ toggleDrawer = (side, open) => () => {
               id="email"
               label="Email Address"
               type="email"
+              onChange={this.handleChange}
               
             />
             <br/><br/>
@@ -100,7 +107,7 @@ toggleDrawer = (side, open) => () => {
               id="password"
               label="Password"
               type="password"
-              
+              onChange={this.handleChange}
             />
           
           <DialogActions>

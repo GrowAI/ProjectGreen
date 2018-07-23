@@ -32,10 +32,11 @@ const controller = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
+    console.log(req.body)
     db.nodes.create({
         nodeId: req.body.nodeId,
         userId: req.body.userId,
-        nodeType:req.body.nodeId,
+        nodeType:req.body.nodeType,
         temperature: req.body.temperature,
         humidity: req.body.humidity,
         r: req.body.r,

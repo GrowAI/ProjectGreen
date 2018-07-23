@@ -13,7 +13,8 @@ module.exports = function(sequelize, DataTypes) {
     userId: {
       type: DataTypes.STRING,
       allowNull: true
-    },   nodeType: {
+    },  
+     nodeType: {
       type: DataTypes.STRING,
       allowNull: true
     },
