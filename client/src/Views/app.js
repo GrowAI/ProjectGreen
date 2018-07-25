@@ -6,16 +6,67 @@ import Room2 from './Rooms/Rooms2'
 import Home from "./Home/index"
 import Navbar from './Navbar2/Navbar'
 import './app.scss'
-
+import axios from "axios";
 class App extends Component {
   state = {
+    logged: false,
+    userDataObj: {},
+    theId: '',
   } 
+  componentDidMount = () => {
+    let theuser;
+       if (sessionStorage.auth != null) {
+           // console.log('auth')
 
+           axios({
+               method: 'post',
+               url: '/api/users/auth',
+               data: {
+                   userToken: sessionStorage.getItem('auth')
+
+               },
+           }).then(user => {
+               if (user != null) {
+                   //console.log(user)
+            console.log(user)
+           
+                   this.setState({
+                       logged: true,
+                       userDataObj: {
+                           email:user.data.email,
+                           profilePic: user.data.profilePic, userId: user.data.id, firstName: user.data.firstName,
+                           lastName: user.data.lastName, active: user.data.active, verified: user.data.verified
+                       },
+                      theId: user.data.id,
+                      userCreatedAt:user.data.createdAt
+
+
+                   },)
+                 
+                   // console.log(this.state.userDataObj)
+                   // console.log(this.state.theId);
+               } else {
+                 
+               }
+           })
+       }
+
+      
+       
+  
+   }
+
+   logOutHandler = () => {
+    this.setState({ logged: false });
+    sessionStorage.removeItem('auth');
+    localStorage.clear();
+}
     render(){
       return (
         <BrowserRouter>
         <div className="app">
-          <Navbar>
+        {console.log(this.state)}
+          <Navbar logged={this.state.logged} logoutfunction={this.logOutHandler}>
 
           </Navbar>
    

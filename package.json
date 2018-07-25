@@ -6,7 +6,7 @@
   "proxy": "http://localhost:3001",
   "dependencies": {
     "@material-ui/core": "^1.4.0",
-    "@material-ui/icons": "^1.1.0",
+    "@material-ui/icons": "^2.0.0",
     "@sendgrid/mail": "^6.1.4",
     "autoprefixer": "7.1.6",
     "aws": "^0.0.3-2",
@@ -103,7 +103,6 @@
     "dev": "yarn dev-build && yarn dev-start",
     "prod": "yarn prod-build && yarn prod-start",
     "heroku-postbuild": "yarn build"
-  
   },
   "jest": {
     "collectCoverageFrom": [

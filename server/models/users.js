@@ -12,6 +12,12 @@ module.exports = function(sequelize, DataTypes) {
         password: {
             type: DataTypes.STRING,
         },
+        firstName: {
+            type: DataTypes.STRING,
+        },
+        lastName: {
+            type: DataTypes.STRING,
+        },
         address: {
             type: DataTypes.STRING,
         },
@@ -19,8 +25,12 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
         },
         subscription: {
-            type: DataTypes.STRING,
+                    type: DataTypes.STRING,
             defaultValue: "basic"
+        },
+        verified  : {
+            type: DataTypes.STRING,
+            defaultValue: false
         },
         inactive: {
             type: DataTypes.BOOLEAN,

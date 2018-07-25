@@ -8,6 +8,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import withMobileDialog from '@material-ui/core/withMobileDialog';
 import TextField from '@material-ui/core/TextField';
 import PropTypes from 'prop-types';
+import axios from "axios";
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -17,6 +18,8 @@ import Drawer from '@material-ui/core/Drawer';
 import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
 import { withStyles } from '@material-ui/core/styles';
+import LoginIn from './LoginButton/Login'
+import LoggedIn from './LoggedIn/LoggedIn'
 import { mailFolderListItems, otherMailFolderListItems } from './DataFile';
 const styles = {
     root: {
@@ -41,7 +44,10 @@ state={
   left: false,
   open:false,
   email:'',
-  pass:''
+  pass:'',
+  anchorEl: null,
+  openMenu:false,
+  menu:false
 
 }
 toggleDrawer = (side, open) => () => {
@@ -49,6 +55,14 @@ toggleDrawer = (side, open) => () => {
     [side]: open,
   });
 };
+toggleMenu = (toggle )=> {
+  console.log(toggle)
+  this.setState({ menu:true });
+};
+handleMenuClose = () => {
+  this.setState({ menu:false });
+};
+
   handleClickOpen = () => {
     this.setState({ open: true });
   };
@@ -62,6 +76,7 @@ toggleDrawer = (side, open) => () => {
     });
   };
    render(){
+    const { anchorEl } = this.state;
     const { fullScreen } = this.props;
     // importing buttons for the drawer list
     const sideList = (
@@ -81,53 +96,9 @@ toggleDrawer = (side, open) => () => {
        );
   return (
     <div style={styles.root}>
-    <AppBar position="static">
+    <AppBar position="static"  >
     {/* signIn Modal */}
-    <Dialog
-          fullScreen={fullScreen}
-          open={this.state.open}
-          onClose={this.handleClose}
-          aria-labelledby="responsive-dialog-title"
-        >
-          <DialogTitle id="responsive-dialog-title">{"Sign In"}</DialogTitle>
-         
-          <TextField
-              autoFocus
-              margin="dense"
-              id="email"
-              label="Email Address"
-              type="email"
-              onChange={this.handleChange}
-              
-            />
-            <br/><br/>
-             <TextField
-              autoFocus
-              margin="dense"
-              id="password"
-              label="Password"
-              type="password"
-              onChange={this.handleChange}
-            />
-          
-          <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
-            Sign In
-            </Button>
-            <br/>
-            <Button onClick={this.handleClose} color="primary">
-            Sign Up
-            </Button>
-            <br/>
-            <Button onClick={this.handleClose} color="primary">
-              Forgot Password
-            </Button>
-            <br/>
-            <Button onClick={this.handleClose} color="primary">
-              Cancel
-            </Button>
-          </DialogActions>
-        </Dialog>
+   
    {/* Drawer opens from the left */}
         <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
           <div
@@ -150,8 +121,10 @@ toggleDrawer = (side, open) => () => {
           </Typography>
           <Typography variant="title" color="inherit" style={styles.flex}>
        
+       
 </Typography>
-          <Button onClick={this.handleClickOpen} color="inherit">Login</Button>
+
+{this.props.logged? <LoggedIn   toggleMenuFunc={this.toggleMenu}  menu={this.state.menu}closeMenuFunction={this.handleMenuClose } anchorel={anchorEl} userdata={this.props.userdata} photoSource={this.props.photoSource}  logout={this.props.logoutfunction} >Login</LoggedIn> : <LoginIn />}
           <Button onClick={this.handleClickOpen} color="inherit">Sign Up</Button>
         </Toolbar>
       </AppBar>
