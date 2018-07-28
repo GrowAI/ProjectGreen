@@ -111,7 +111,7 @@ aria-labelledby="responsive-dialog-title"
    
     label="Password"
     name='password'
-    type="password"
+    type="passwordgit"
     value={this.state.password}
     onChange={this.onChange}
   />
